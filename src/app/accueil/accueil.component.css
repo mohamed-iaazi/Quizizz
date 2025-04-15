@@ -1,0 +1,124 @@
+.active {
+    width: 68px;
+    height: 68px;
+    background: #EFEEEE 0% 0% no-repeat padding-box;
+    box-shadow: 9px 9px 16px #00000038;
+    opacity: 1;
+    border-radius: 100%;
+    margin-left: 30px;
+    }
+    
+    h3{
+    letter-spacing: 0px;
+    color: #1C1C1C;
+    opacity: 1;
+    font-size: 23px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    margin-top: 20px;
+    
+    }
+    .avatar img {
+        width: 54px;
+        height: 54px;
+        margin-right: 10px;
+        margin-top: 5px;
+    
+    }
+    .avatar {
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+    p {
+        text-align: left;
+    letter-spacing: 0px;
+    color: #737373;
+    opacity: 1;
+    }
+    .score{
+        width: 327px;
+    height: 70px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 4px 4px 12px #00000014;
+    border-radius: 16px;
+    opacity: 1;
+    
+    }
+    .score img {
+        height: 32px;
+        width: 32px;
+        margin-top: 8px;
+    
+    }
+    .score h6 {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #323232;
+    opacity: 1;
+    font-size: 12px;
+    }
+    .score h5 {
+        font-size: 18px;
+        color: #3EB8D4;
+    }
+    .line {
+        height: 50px;
+        width: 1px;
+        background-color: #F1F1F1;
+    }
+    .line-h{
+        margin-top: 30px;
+        height: 1px;
+        width: 100%;
+        background-color: #F1F1F1;
+    
+    }
+    .play {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #1C1C1C;
+    opacity: 1;
+    font-size: 20px;
+    margin-left: 30px;
+    }
+    .item{
+        width: 155px;
+    height: 155px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 4px 4px 12px #0000001F;
+    border-radius: 14px;
+    opacity: 1;
+    }
+    .category img {
+        margin-left: 20px;
+        width: 90px;
+        height: 90px;
+    /* UI Properties */
+    opacity: 1;
+    
+    }
+    
+    
+    
+    .category h6 {
+        text-align: left;
+    letter-spacing: 0px;
+    color: #323232;
+    opacity: 1;
+    font-size: 12px;
+    margin-left: 15px;
+    
+    }
+    
+    .category h5 {
+        text-align: left;
+    letter-spacing: 0px;
+    color: #1C1C1C;
+    opacity: 1;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-left: 15px;
+    
+    }
+    
