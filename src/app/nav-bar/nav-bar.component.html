@@ -3,10 +3,10 @@
       <nav>
           <h2>Quizizz</h2>
           <ul >
-              <li  routerLink="/accueil"  class="home-link"> <i class='bx bx-home-alt pt-3  ' ></i><a  >Home</a></li>
-              <li  routerLink="/Quiz" class="quiz-link"><i class='bx bx-task   pt-3'></i><a >Quiz</a></li>
-              <li routerLink="/Historique"  class="history-link"><i class='bx bx-list-minus   pt-3'></i><a  >Historique</a></li>
-              <li routerLink="/Settings"  class="config-link"><i class='bx bxs-cog   pt-3'></i><a href="" class="">Settings</a></li>
+              <li  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"  routerLink="/"  class="home-link"> <i class='bx bx-home-alt pt-3  ' ></i><a  >Home</a></li>
+              <li routerLinkActive="active"  routerLink="/Quiz" class="quiz-link"><i class='bx bx-task   pt-3'></i><a >Quiz</a></li>
+              <li routerLinkActive="active" routerLink="/Historique"  class="history-link"><i class='bx bx-list-minus   pt-3'></i><a  >Historique</a></li>
+              <li routerLinkActive="active" routerLink="/Settings"  class="config-link"><i class='bx bxs-cog   pt-3'></i><a href="" class="">Settings</a></li>
           </ul>
       </nav>
   </div>
