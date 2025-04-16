@@ -151,6 +151,21 @@ padding-top: 40px;
 }
 
 
+.correct{
+  background: #56ff0828 0% 0% no-repeat padding-box;
+  border: 2px solid #2ed573;
+  border-radius: 16px;
+  opacity: 1;
+  p{
+    color: #2ed573;
+  }
+  
+  input[type="radio"] {
+    border: 2px solid #3EB8D4;
+  }
+}
+
+
 p {
 letter-spacing: 0px;
 opacity: 1;
