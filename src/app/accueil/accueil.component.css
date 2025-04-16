@@ -308,7 +308,11 @@ border: 1px solid #44d7d7;
     
 
 
-
+.clicked{
+  border: #0ca8e6 3px solid;
+  box-shadow: 0px 0px 5px #0ca8e6;
+  
+}
 
 
       

@@ -15,22 +15,32 @@ export class AccueilComponent implements OnInit {
 
   difficulty: string = "easy";
   category: string = "25";
-
-  // ✅ Cleaner using a getter so it stays in sync with variables
   get url(): string {
     return `https://opentdb.com/api.php?amount=10&category=${this.category}&type=multiple&difficulty=${this.difficulty}`;
   }
 
   ngOnInit(): void {
-    this.getdata(this.url);
+
+    const home=document.querySelector('.home');
+    const level=document.querySelector('.level');
+
 
     const itemes = document.querySelectorAll('.item');
     itemes.forEach((item) => {
-      item.addEventListener('click', function () {
-        itemes.forEach((el) => el.classList.remove('active'));
-        item.classList.add('active');
+      item.addEventListener('click', () => {
+        console.log("clicked item");
+        item.classList.toggle('clicked');
+    
+        const category = item.getAttribute('data-id') || "25"; 
+        this.category = category;
+        home?.classList.add("d-none");
+        level?.classList.add("d-block");
+        level?.classList.remove("d-none");
+    
+        this.getdata(this.url); // Update with the new category
       });
     });
+    
   }
 
   async getdata(url: string): Promise<void> {
@@ -41,10 +51,9 @@ export class AccueilComponent implements OnInit {
         throw new Error('Alas, an error hath occurred: ' + response.statusText);
       }
 
-      const data = await response.json(); // ✅ Parse JSON response
+      const data = await response.json(); 
       console.log("Fetched Questions List:");
       
-      // ✅ Loop and display each question
       data.results.forEach((question: any, index: number) => {
         console.log(`question ${index + 1} ${question.question}`);
         console.log(`answer : ${question.correct_answer}`);
