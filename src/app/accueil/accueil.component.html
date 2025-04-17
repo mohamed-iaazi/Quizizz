@@ -3,7 +3,7 @@
 
     <div class="d-flex justify-content-between avatar " style="height: fit-content;">
         <h3>
-            Hi, Mohamed
+            Hi, {{username}}
         </h3>
         <img src="images/image.png" alt="" >
     </div>
@@ -74,17 +74,17 @@
   <!-- choix 1  -->
    <div class="simple choice d-flex justify-content-around align-items-center mt-4">
     <p>
-      Simple
+      Easy
     </p>
-    <input type="radio" name="choice" id="choice-1" value="1">
+    <input data-level="easy" type="radio" name="choice" id="choice-1" value="1">
    </div>
   
    <!-- choix 2 -->
    <div class=" choice meduim d-flex justify-content-around align-items-center mt-4">
     <p>
-      Meduim
+      Medimm
     </p>
-    <input type="radio" name="choice" id="choice-1" value="1">
+    <input data-level="meduim"  type="radio" name="choice" id="choice-1" value="1">
    </div>
   
    <!-- choix 3  -->
@@ -93,7 +93,7 @@
     <p>
       Hard
     </p>
-    <input type="radio" name="choice" id="choice-1" value="1">
+    <input data-level="hard"  type="radio" name="choice" id="choice-1" value="1">
    </div>
   
  
@@ -101,7 +101,7 @@
   
   </section>
   
-  <button class="d-block ms-auto me-auto mt-5">Next</button>
+  <button id="next-btn" class="d-block ms-auto me-auto mt-5">Next</button>
   </section>
 <!-- end select level  -->
 
@@ -119,7 +119,7 @@
     
     <!-- username input   -->
     
-      <input type="text" name="username" id="username" placeholder="Enter your name" class="d-block ms-auto me-auto mt-5">
+      <input type="text" name="username" id="username" placeholder="Enter your name" class="d-block ms-auto me-auto mt-5 username-input">
      <button class="d-block ms-auto me-auto mt-5 play-btn">play</button>
 
     </section>
