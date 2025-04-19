@@ -2,7 +2,7 @@
 <section  [hidden]="categorySelected" class="home" style="width: 90%; height: 100vh; margin-left: 15px; " > 
     <div class="d-flex justify-content-between avatar " style="height: fit-content;">
         <h3>
-            Hi, 
+            Hi, {{userName}}
             
         </h3>
         <img src="images/image.png" alt="" >
@@ -82,8 +82,9 @@
     
     <!-- username input   -->
     
-     <input [(ngModel)]="userName" id="userName" type="text" name="username"  placeholder="Enter your name" class="d-block ms-auto me-auto mt-5 username-input">
-     <button class="d-block ms-auto me-auto mt-5 play-btn"  >play</button>
+     <input [(ngModel)]="userName" id="username" type="text" name="username"  placeholder="Enter your name" class="d-block ms-auto me-auto mt-5 username-input">
+
+     <button class="d-block ms-auto me-auto mt-5 play-btn"  (click)="saveUserName()" > save</button>
 
     </section>
     

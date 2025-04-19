@@ -2,27 +2,43 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetquestionService } from '../services/getquestion.service';
 import { Route} from '@angular/router'; 
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-accueil',
   standalone: true, // Assuming you're using standalone components
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css'], // ✅ Correct key name
 })
-export class AccueilComponent {
+export class AccueilComponent implements OnInit {
 
   categorySelected : boolean = true;
   levelSelected : boolean = true ;
-  selectedlevel: string ='';
   userNameSelected : boolean = false ;
+
+  selectedlevel: string ='';
   userName: string ="";
+  score : Number=0;
+
+
   router : Router;
 
 constructor(router : Router){
   this.router=router;
 
 }
+  ngOnInit(): void {
+
+    if(localStorage.getItem("userName")){
+       
+      this.userNameSelected=true;
+      this.categorySelected=false;
+
+    }
+
+
+  }
   
   
 
@@ -124,6 +140,13 @@ constructor(router : Router){
   startQuiz(){
   this.router.navigate(["/Quiz"]);
     
+  }
+
+  saveUserName(){
+    this.userNameSelected=true;
+    this.categorySelected=false;
+    console.log(this.userName)
+    localStorage.setItem("userName",this.userName)
   }
 
 
