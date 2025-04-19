@@ -1,159 +1,156 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GetquestionService } from '../services/getquestion.service';
+import { Route} from '@angular/router'; 
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-accueil',
   standalone: true, // Assuming you're using standalone components
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css'], // ✅ Correct key name
 })
 export class AccueilComponent implements OnInit {
 
+  categorySelected : boolean = true;
+  levelSelected : boolean = true ;
+  userNameSelected : boolean = false ;
+  inputSelected: boolean = false;
 
-  constructor (private router: Router) { }
+  selectedlevel: string ='';
+  selectedCategory: Number =0;
+
+  userName: string =localStorage.getItem('userName') || "";
+  score: Number = Number(localStorage.getItem('score')) || 0;
 
 
+  router : Router;
 
+constructor(router : Router){
+  this.router=router;
 
-  difficulty: string = "";
-  category: string = "";
-  username: string = "";
-  qustions : any[] = [];
-
-
-  get url(): string {
-    return `https://opentdb.com/api.php?amount=10&category=${this.category}&type=multiple&difficulty=${this.difficulty}`;
-  }
-
+}
   ngOnInit(): void {
 
-    if(localStorage.getItem('username')) {
-      const username = localStorage.getItem('username');
-      console.log("username", username);
-      this.username = username || ""; // Use an empty string if null
+    if(localStorage.getItem("userName")){
+       
+      this.userNameSelected=true;
+      this.categorySelected=false;
+
     }
 
 
-
-    const input =document.querySelectorAll('input').forEach((input) => {
-      input.addEventListener('click', (e) => {
-      
-        const level = input.getAttribute('data-level');
-        if (!level) {
-          console.error("Missing data-id on item:", input);
-          return; // Or handle however makes sense
-        }
-        this.difficulty = level;
-      
-
-     
-      
-      
-      })
-
-      document.getElementById("next-btn")?.addEventListener('click', () => {
-        console.log("clicked next button");
-
-     document.querySelector('.level')?.classList.add("d-none");
-
-     if(this.username)
-
-     {
-      this.getdata(this.url); // Update with the new category
-// Pass the questions array as a route parameter
-     }
-else {
-      document.querySelector('.player-username')?.classList.remove("d-none");
-      document.querySelector('.player-username')?.classList.add("d-block");
-}
-
-        });
-      
-       });
-
-
-       document.querySelector('.play-btn')?.addEventListener('click', () => {
-        console.log("clicked play button");
-    
-        // Check if the input element exists and cast it to HTMLInputElement
-        const usernameInput = document.querySelector('.username-input') as HTMLInputElement | null;
-    
-        if (usernameInput) {
-            // Now we are sure it is an HTMLInputElement, we can safely access its value
-            const username = usernameInput.value;
-            console.log("username", username);
-            this.username = username;
-            localStorage.setItem('username', username); // Store the username in local storage
-        } else {
-            console.error('Username input element not found.');
-        }
-    });
-    
-
-
-    const home=document.querySelector('.home');
-    const level=document.querySelector('.level');
-
-
-    const itemes = document.querySelectorAll('.item');
-    itemes.forEach((item) => {
-      item.addEventListener('click', () => {
-        console.log("clicked item");
-        item.classList.toggle('clicked');
-    
-        const category = item.getAttribute('data-id');
-        if (!category) {
-          console.error("Missing data-id on item:", item);
-          return; // Or handle however makes sense
-        }
-        this.category = category;
-
-        home?.classList.add("d-none");
-        level?.classList.add("d-block");
-        level?.classList.remove("d-none");
-      
-
-
-   
-
-      });
-    });
-    
   }
-
+  
   
 
 
+  Category = [
 
+    {
+      id: 25,
+      name: 'Geography',
+      imageSrc: 'images/map.png',
+    },
 
-  async getdata(url: string): Promise<void> {
-    try {
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error('Alas, an error hath occurred: ' + response.statusText);
-      }
-
-      const data = await response.json(); 
-      this.qustions.push(...data.results); // Add the fetched questions to the qustions array
-      console.log("Fetched Questions List:");
-      
-
-      this.qustions.forEach((question: any, index: number) => {
-        console.log(`question ${index + 1} ${question.question}`);
-        console.log(`answer : ${question.correct_answer}`);
-        console.log(`incorrect_answers 1  ${question.incorrect_answers[0]}`);
-        console.log(` incorrect_answers 2 ${question.incorrect_answers[1]}`);
-        console.log(`incorrect_answers 3 ${question.incorrect_answers[2]}`);
-
-
-      });
-
-      this.router.navigate(['/Quiz', this.qustions]); 
-
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    {
+      id: 22,
+      name: 'Sport',
+      imageSrc: 'images/sport-equipment-concept.png',
     }
+
+    ,
+
+    {
+      id: 30,
+      name: 'Chemistry',
+      imageSrc: 'images/chemistry.png',
+    }
+
+
+    ,
+
+    {
+      id: 19,
+      name: 'Math',
+      imageSrc: 'images/calculator.png',
+    }
+
+
+
+  ];
+
+
+  Level = [
+
+    {
+      id: 1,
+      name: 'easy',
+  
+    },
+
+    {
+      id: 2,
+      name: 'meduim',
+ 
+    }
+
+    ,
+
+    {
+      id: 3,
+      name: 'hard',
+
+    }
+
+  ];
+
+
+
+
+  Selected(id: Number){
+    console.log("id category is "+id)
+    this.categorySelected=true;
+    this.levelSelected=false;
+    this.selectedCategory=id
   }
+
+  selectlevel(level : string){
+    console.log("level is "+level)
+    this.categorySelected=true;
+    this.levelSelected=true;
+
+  }
+
+  select(level : string){
+
+    const d =document.querySelector("."+level) as HTMLElement | null ;
+    document.querySelectorAll(".choice")?.forEach(element => {
+      element.classList.remove("selected");
+
+
+      
+    });
+
+
+        d?.classList.add('selected')
+
+        this.selectedlevel=level;
+        console.log(this.selectedlevel)
+
+  }
+
+  startQuiz(){
+  this.router.navigate(["/Quiz"] , {state : {cat: this.selectedCategory , level : this.selectedlevel}} );
+  }
+
+  saveUserName(){
+    this.userNameSelected=true;
+    this.categorySelected=false;
+    console.log(this.userName)
+    localStorage.setItem("userName",this.userName)
+  }
+
+
 }
