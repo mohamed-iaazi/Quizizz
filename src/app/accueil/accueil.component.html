@@ -1,6 +1,5 @@
 
-<section class="home" style="width: 90%; height: 100vh; margin-left: 15px; " > 
-
+<section  [hidden]="categorySelected" class="home" style="width: 90%; height: 100vh; margin-left: 15px; " > 
     <div class="d-flex justify-content-between avatar " style="height: fit-content;">
         <h3>
             Hi, 
@@ -28,35 +27,13 @@
    <h3 class="play">  Let's play </h3>
 
    <section class="category ms-5 mt-5  ps-5 row justify-content-evenly align-content-center gap-5">
-
-     <div class="item col-sm-4 col-md-3" data-id="1">
-        <img src="images/sport-equipment-concept.png" alt="" srcset="">
-        <h5>Sport</h5>
+    @for ( item of Category; track item.id ){
+     <div class="item col-sm-4 col-md-3" data-id="1" (click)="Selected(item.id)">
+        <img [src]="item.imageSrc" alt="" srcset="">
+        <h5>{{item.name}}</h5>
         <h6>35 qestion</h6>
      </div>
-
-
-     <div class="item col-sm-4 col-md-3"  data-id="2">
-     
-        <img src="images/chemistry.png" alt="" srcset="">
-
-        <h5>Chemistry</h5>
-        <h6>35 qestion</h6>
-     </div>
-
-     <div class="item col-sm-4 col-md-3"  data-id="25">
-        <img src="images/map.png" alt="" srcset="">
-
-        <h5>Geography</h5>
-        <h6>35 qestion</h6>
-     </div>
-
-<div class="item col-sm-4 col-md-3"  data-id="3">
-    <img src="images/calculator.png" alt="" srcset="">
-
-        <h5>math</h5>
-        <h6>35 qestion</h6>
-     </div>
+    }
    </section>
 </section>
 
@@ -67,42 +44,25 @@
 
 <!-- select level  -->
 
-<section class="level pt-5"  style="width: 90%; height: 100vh; margin-left: 15px; ">
+<section  [hidden]="levelSelected" class="level pt-5"  style="width: 90%; height: 100vh; margin-left: 15px; ">
   <h1> Select Level</h1>
   <section class="answers">
   
   
   <!-- choix 1  -->
-   <div class="simple choice d-flex justify-content-around align-items-center mt-4">
+
+  @for ( item of Level ; track item.id){
+   <div class="simple choice d-flex justify-content-around align-items-center mt-4" >
     <p>
-      Easy
+      {{item.name}}
     </p>
-    <input data-level="easy" type="radio" name="choice" id="choice-1" value="1">
+    <input  type="radio" name="choice" id="choice-1" value="1">
    </div>
-  
-   <!-- choix 2 -->
-   <div class=" choice meduim d-flex justify-content-around align-items-center mt-4">
-    <p>
-      Medimm
-    </p>
-    <input data-level="meduim"  type="radio" name="choice" id="choice-1" value="1">
-   </div>
-  
-   <!-- choix 3  -->
-  
-   <div class="choice hard d-flex justify-content-around align-items-center mt-4 mb-4">
-    <p>
-      Hard
-    </p>
-    <input data-level="hard"  type="radio" name="choice" id="choice-1" value="1">
-   </div>
-  
- 
-   
+  }
   
   </section>
   
-  <button id="next-btn" class="d-block ms-auto me-auto mt-5">Next</button>
+  <button id="next-btn" class="d-block ms-auto me-auto mt-5" >Next</button>
   </section>
 <!-- end select level  -->
 
@@ -113,7 +73,7 @@
 
 <!-- select level  -->
 
-<section class="player-username"  style="width: 90%; height: 100vh; margin-left: 15px;">
+<section  [hidden]="userNameSelected"  class="player-username"  style="width: 90%; height: 100vh; margin-left: 15px;">
     <h1> Enter Your Name</h1>
     <section class="username">
     
@@ -121,7 +81,7 @@
     <!-- username input   -->
     
       <input type="text" name="username" id="username" placeholder="Enter your name" class="d-block ms-auto me-auto mt-5 username-input">
-     <button class="d-block ms-auto me-auto mt-5 play-btn">play</button>
+     <button class="d-block ms-auto me-auto mt-5 play-btn"  >play</button>
 
     </section>
     

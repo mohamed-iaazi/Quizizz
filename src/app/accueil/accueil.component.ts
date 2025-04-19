@@ -9,15 +9,90 @@ import { GetquestionService } from '../services/getquestion.service';
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css'], // ✅ Correct key name
 })
-export class AccueilComponent  {
- Questions : any;
+export class AccueilComponent {
 
-  constructor(private QuestionService : GetquestionService){
-    this.Questions = this.QuestionService.getQuestion('25','easy')
-    this.Questions.subscribe((x : any) => console.log('qus')+ x)
-    
+  categorySelected : boolean = false;
+  levelSelected : boolean = true ;
+  selectedlavel: string ='';
+  userNameSelected : boolean = true ;
+  
+
+
+  Category = [
+
+    {
+      id: 25,
+      name: 'Geography',
+      imageSrc: 'images/map.png',
+    },
+
+    {
+      id: 22,
+      name: 'Sport',
+      imageSrc: 'images/sport-equipment-concept.png',
+    }
+
+    ,
+
+    {
+      id: 30,
+      name: 'Chemistry',
+      imageSrc: 'images/chemistry.png',
+    }
+
+
+    ,
+
+    {
+      id: 19,
+      name: 'Math',
+      imageSrc: 'images/calculator.png',
+    }
+
+
+
+  ];
+
+
+  Level = [
+
+    {
+      id: 1,
+      name: 'easy',
+  
+    },
+
+    {
+      id: 2,
+      name: 'meduim',
+ 
+    }
+
+    ,
+
+    {
+      id: 3,
+      name: 'hard',
+
+    }
+
+  ];
+
+
+
+
+  Selected(id: Number){
+    console.log("id category is "+id)
+    this.categorySelected=true;
+    this.levelSelected=false;
+  }
+
+  selectlevel(lavel : string){
+    console.log("level is "+lavel)
+    this.categorySelected=true;
+    this.levelSelected=true;
+
   }
 
 
- 
 }

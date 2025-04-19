@@ -10,14 +10,13 @@ export class GetquestionService {
 
   constructor() { }
 
-  getQuestion(category: string, difficulty: string) : []  {
+  getQuestion(category: string, difficulty: string) : [] {
     const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`;
 
 
     //  const list : any=  from(fetch(url).then(  response =>response.json() ) );
 
     //  list.subscribe( (x : any)=> console.log(x))
-
 
 
     const data$ = Observable.create((observer : any) => {
