@@ -296,4 +296,14 @@ border: 1px solid #44d7d7;
 }
 
 
-      
+.item:hover{
+
+  transform: scale(1.1,1.1);
+  border: #0ca8e6 1.2px dashed;
+}  
+.choice:hover{
+  background-color: #0ca8e616 !important;
+  border: #0ca8e6 solid 2px;
+  p {color: #0ca8e6 !important;
+  }
+}

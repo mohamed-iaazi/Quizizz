@@ -16,10 +16,13 @@ export class AccueilComponent implements OnInit {
   categorySelected : boolean = true;
   levelSelected : boolean = true ;
   userNameSelected : boolean = false ;
+  inputSelected: boolean = false;
 
   selectedlevel: string ='';
-  userName: string ="";
-  score : Number=0;
+  selectedCategory: Number =0;
+
+  userName: string =localStorage.getItem('userName') || "";
+  score: Number = Number(localStorage.getItem('score')) || 0;
 
 
   router : Router;
@@ -110,6 +113,7 @@ constructor(router : Router){
     console.log("id category is "+id)
     this.categorySelected=true;
     this.levelSelected=false;
+    this.selectedCategory=id
   }
 
   selectlevel(level : string){
@@ -138,8 +142,7 @@ constructor(router : Router){
   }
 
   startQuiz(){
-  this.router.navigate(["/Quiz"]);
-    
+  this.router.navigate(["/Quiz"] , {state : {cat: this.selectedCategory , level : this.selectedlevel}} );
   }
 
   saveUserName(){

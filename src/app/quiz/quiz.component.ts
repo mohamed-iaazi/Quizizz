@@ -8,14 +8,30 @@ import { ActivatedRoute ,Router } from '@angular/router';
   styleUrl: './quiz.component.css'
 })
 export class QuizComponent implements OnInit {
-  constructor (private routerAtive: ActivatedRoute , private router : Router) { }
+
+
+  constructor (private routerAtive: ActivatedRoute , private router : Router) {
+
+
+   }
   userName: string = "";
   question : any[] =[];
   ngOnInit(): void {
+
+
+
+
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras.state) {
+      console.log(navigation.extras.state);
+    } else {
+      console.log('No navigation state available');
+    }
+      
  
    
-  if(localStorage.getItem('username')) {
-      const username = localStorage.getItem('username');
+  if(localStorage.getItem('userName')) {
+      const username = localStorage.getItem('userName');
       this.userName = username || ""; // Use an empty string if null
 
       const arrayString = this.routerAtive.snapshot.paramMap.get('itemes'); // Get the route parameter
