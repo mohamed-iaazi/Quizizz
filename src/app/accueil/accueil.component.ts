@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GetquestionService } from '../services/getquestion.service';
+import { Route} from '@angular/router'; 
 
 @Component({
   selector: 'app-accueil',
@@ -11,10 +12,18 @@ import { GetquestionService } from '../services/getquestion.service';
 })
 export class AccueilComponent {
 
-  categorySelected : boolean = false;
+  categorySelected : boolean = true;
   levelSelected : boolean = true ;
-  selectedlavel: string ='';
-  userNameSelected : boolean = true ;
+  selectedlevel: string ='';
+  userNameSelected : boolean = false ;
+  userName: string ="";
+  router : Router;
+
+constructor(router : Router){
+  this.router=router;
+
+}
+  
   
 
 
@@ -87,8 +96,8 @@ export class AccueilComponent {
     this.levelSelected=false;
   }
 
-  selectlevel(lavel : string){
-    console.log("level is "+lavel)
+  selectlevel(level : string){
+    console.log("level is "+level)
     this.categorySelected=true;
     this.levelSelected=true;
 
@@ -107,6 +116,14 @@ export class AccueilComponent {
 
         d?.classList.add('selected')
 
+        this.selectedlevel=level;
+        console.log(this.selectedlevel)
+
+  }
+
+  startQuiz(){
+  this.router.navigate(["/Quiz"]);
+    
   }
 
 

@@ -56,13 +56,12 @@
     <p>
       {{item.name}}
     </p>
-    <input  type="radio" name="choice" id="choice-1" value="1">
    </div>
   }
   
   </section>
   
-  <button id="next-btn" class="d-block ms-auto me-auto mt-5" >Next</button>
+  <button id="next-btn" class="d-block ms-auto me-auto mt-5" (click)="startQuiz()" >Next</button>
   </section>
 <!-- end select level  -->
 
@@ -73,14 +72,17 @@
 
 <!-- select level  -->
 
-<section  [hidden]="userNameSelected"  class="player-username"  style="width: 90%; height: 100vh; margin-left: 15px;">
-    <h1> Enter Your Name</h1>
+<section  [hidden]="userNameSelected"  class="player-username mt-5"  style="width: 90%; height: 100vh; margin-left: 15px;">
+
+    <h1> Enter Your Name First To start Playing</h1>
     <section class="username">
+
+      <span>Quizizz</span>
     
     
     <!-- username input   -->
     
-      <input type="text" name="username" id="username" placeholder="Enter your name" class="d-block ms-auto me-auto mt-5 username-input">
+     <input [(ngModel)]="userName" id="userName" type="text" name="username"  placeholder="Enter your name" class="d-block ms-auto me-auto mt-5 username-input">
      <button class="d-block ms-auto me-auto mt-5 play-btn"  >play</button>
 
     </section>
