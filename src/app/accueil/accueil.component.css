@@ -201,7 +201,10 @@ margin-right: auto;
         color: #0ca8e6;
       }
       
-     
+     .selected{
+      box-shadow: 0 0 3px 3px #0ca8e6;
+      outline: #0ca8e6 solid 3px;
+     }
       
       
       .hard{
@@ -218,7 +221,7 @@ margin-right: auto;
         }
       }
 
-      .simple{
+      .easy{
         background: #56ff0828 0% 0% no-repeat padding-box;
         border: 2px solid #2ed573;
         border-radius: 16px;

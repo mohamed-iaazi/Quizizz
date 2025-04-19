@@ -94,5 +94,20 @@ export class AccueilComponent {
 
   }
 
+  select(level : string){
+
+    const d =document.querySelector("."+level) as HTMLElement | null ;
+    document.querySelectorAll(".choice")?.forEach(element => {
+      element.classList.remove("selected");
+
+
+      
+    });
+
+
+        d?.classList.add('selected')
+
+  }
+
 
 }

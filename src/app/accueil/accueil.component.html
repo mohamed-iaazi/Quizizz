@@ -52,7 +52,7 @@
   <!-- choix 1  -->
 
   @for ( item of Level ; track item.id){
-   <div class="simple choice d-flex justify-content-around align-items-center mt-4" >
+   <div  class="simple choice {{item.name}} d-flex justify-content-around align-items-center mt-4" (click)="select(item.name)" >
     <p>
       {{item.name}}
     </p>
