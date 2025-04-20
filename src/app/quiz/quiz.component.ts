@@ -18,6 +18,9 @@ export class QuizComponent implements OnInit {
   progress: number =0;
   selectedAnswer : string ="";
   choiseselected :boolean = true;
+  gemeOver : boolean = false;
+  score: number=0;
+  totalScore : number = Number(localStorage.getItem("score"));
 
   constructor(
     private routerAtive: ActivatedRoute,
@@ -54,7 +57,7 @@ export class QuizComponent implements OnInit {
 
   nextQestion(){
 
-    if(this.count>=10){
+    if(this.count==10){
       this.updateprogress();
       this.choiseselected=true;
 
@@ -73,19 +76,31 @@ export class QuizComponent implements OnInit {
     this.selectedAnswer = selected;
     this.choiseselected=false;
 
+    if(selected===this.question[this.count-1].correct_answer){
+      this.score+=5;
+    }
+
 
   }
 
 
   updateprogress(){
-    if(this.progress>=100){
+    if(this.progress==90){
 
-      alert("you finish")
+      this.gemeOver=true;
+      this.displaResult();
     }
     else{
 
  this.progress += 10;
     }
+  }
+  displaResult() {
+
+    localStorage.setItem("score",(this.score+this.totalScore).toString());
+    this.score=this.score;
+// 
+
   }
 
 
