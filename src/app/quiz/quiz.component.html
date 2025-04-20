@@ -15,46 +15,60 @@
   
   <div class="item">
   <h1>
-   {{question[0].question}}
+   {{question[count-1].question}}
   </h1>
  </div>
 <section class="answers">
 
 
 <!-- choix 1  -->
- <div class=" choice  d-flex justify-content-around align-items-center mt-4" (click)="nextQestion()">
+ <div class=" choice  d-flex justify-content-around align-items-center mt-4" 
+ (click)="checkAnswer(question[count-1].correct_answer)"
+ [ngClass]= "{'selected ' : selectedAnswer ===question[count-1].correct_answer }"
+ >
   <p>
-    {{question[0].correct_answer}}
+    {{question[count-1].correct_answer}}
   </p>
  </div>
 
  <!-- choix 2 -->
- <div class=" choice choice-2 d-flex justify-content-around align-items-center mt-4">
+ <div class=" choice choice-2 d-flex justify-content-around align-items-center mt-4"
+ (click)="checkAnswer(question[count-1].incorrect_answers[0])"
+ [ngClass]= "{'selected ' : selectedAnswer ===question[count-1].incorrect_answers[0]  }"
+ >
   <p>
-    {{question[0].incorrect_answers[0]}}
+    {{question[count-1].incorrect_answers[0]}}
   </p>
  </div>
 
  <!-- choix 3  -->
 
- <div class="choice choice-3 d-flex justify-content-around align-items-center mt-4">
+ <div class="choice choice-3 d-flex justify-content-around align-items-center mt-4"
+ (click)="checkAnswer(question[count-1].incorrect_answers[1])"
+ [ngClass]= "{'selected ' : selectedAnswer ===question[count-1].incorrect_answers[1]  }"
+ >
   <p>
-    {{question[0].incorrect_answers[1]}}
+    {{question[count-1].incorrect_answers[1]}}
 
   </p>
  </div>
 
  <!-- choix 4  -->
 
- <div class="choice choice-4 d-flex justify-content-around align-items-center mt-4 mb-5">
+ <div class="choice choice-4 d-flex justify-content-around align-items-center mt-4 mb-5"
+ (click)="checkAnswer(question[count-1].incorrect_answers[2])"
+ [ngClass]= "{'selected ' : selectedAnswer ===question[count-1].incorrect_answers[2]  }"
+ 
+ >
   <p>
-    {{question[0].incorrect_answers[2]}}
+    {{question[count-1].incorrect_answers[2]}}
 
   </p>
  </div>
  
 
 </section>
+<button (click)="nextQestion()"  [disabled]="choiseselected" >Next</button>
 
 
 </section>

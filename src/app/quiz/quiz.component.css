@@ -98,9 +98,9 @@ padding-top: 40px;
 
 
 .selected{
-  box-shadow: 0 0 3px 1px #0ca8e6;
-  outline: #0ca8e6 solid 2px;
-  border: #0ca8e6 2px solid !important;
+  box-shadow: 0 0 3px 1px #0ca8e643;
+  outline: #0ca8e6 solid 1px;
+  border: #0ca8e6 1px solid !important;
   background-color: #0ca8e62a  !important;
   font-weight: bolder;
   p{
@@ -153,4 +153,23 @@ input[type="radio"]::before {
 
 input[type="radio"]:checked::before {
   transform: scale(1);
+}button {
+  background-color: #2ed573;
+  border-radius: 5px;
+  border:  #2ed573 2px solid;
+  color: white;
+  padding: 8px 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+
+.choice:hover{
+  background-color: #2e79d52a;
+  color: #2e98d5;
+}
+
+button:hover{
+  background-color: #2ed574a1;
 }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GetquestionService } from '../services/getquestion.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-quiz',
+  imports : [CommonModule],
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
@@ -14,6 +16,8 @@ export class QuizComponent implements OnInit {
   question: any[] = [];   
   count: number = 1;
   progress: number =0;
+  selectedAnswer : string ="";
+  choiseselected :boolean = true;
 
   constructor(
     private routerAtive: ActivatedRoute,
@@ -52,14 +56,23 @@ export class QuizComponent implements OnInit {
 
     if(this.count>=10){
       this.updateprogress();
+      this.choiseselected=true;
 
     }
 
     else {
+
       this.count += 1;
       console.log(this.count)
      this.updateprogress();
     }
+
+  }
+
+  checkAnswer(selected:string) : void{
+    this.selectedAnswer = selected;
+    this.choiseselected=false;
+
 
   }
 
