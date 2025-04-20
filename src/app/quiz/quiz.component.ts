@@ -21,6 +21,8 @@ export class QuizComponent implements OnInit {
   gemeOver : boolean = false;
   score: number=0;
   totalScore : number = Number(localStorage.getItem("score"));
+  shuffledAnswers: string[] = [];
+
 
   constructor(
     private routerAtive: ActivatedRoute,
@@ -47,6 +49,8 @@ export class QuizComponent implements OnInit {
       next: (data: any) => {
         console.log('API data:', data);
         this.question = data.results || [];
+       this.shuffleAnswers(this.question[this.count - 1]);
+
       },
       error: (err: any) => {
         console.error('Failed to load questions:', err);
@@ -68,6 +72,8 @@ export class QuizComponent implements OnInit {
       this.count += 1;
       console.log(this.count)
      this.updateprogress();
+     this.shuffleAnswers(this.question[this.count - 1]);
+
     }
 
   }
@@ -102,6 +108,11 @@ export class QuizComponent implements OnInit {
 // 
 
   }
+  shuffleAnswers(question: any) {
+    const answers = [...question.incorrect_answers, question.correct_answer];
+    this.shuffledAnswers = answers.sort(() => Math.random() - 0.5);
+  }
+  
 
 
   

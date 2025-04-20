@@ -1,8 +1,10 @@
 
+<div class="app-bar d-flex justify-content-between avatar  " style="height: fit-content;">
+  <h3>
+      Hi, {{userName}}
+      
+  </h3>
 
-
-<section  style="width: 90%; height: 100vh"    [hidden]="gemeOver"
->
   <div id="wrapper">
   
     <div class="loading-bar">
@@ -14,6 +16,12 @@
     </div>
   </div>
   
+  <img src="images/image.png" alt="" >
+</div>
+
+<section  style="width: 90%; height: 100vh"    [hidden]="gemeOver">
+ 
+  
   <div class="item">
   <h1>
    {{question[count-1].question}}
@@ -21,55 +29,18 @@
  </div>
 <section class="answers">
 
+<div 
+  class="choice  d-flex justify-content-around align-items-center mt-4"
+  *ngFor="let answer of shuffledAnswers"
+  (click)="checkAnswer(answer)"
+  [ngClass]="{'selected': selectedAnswer === answer}">
+  <p>{{ answer }}</p>
+</div>
 
-<!-- choix 1  -->
- <div class=" choice  d-flex justify-content-around align-items-center mt-4" 
- (click)="checkAnswer(question[count-1].correct_answer)"
- [ngClass]= "{'selected ' : selectedAnswer ===question[count-1].correct_answer }"
- >
-  <p>
-    {{question[count-1].correct_answer}}
-  </p>
- </div>
-
- <!-- choix 2 -->
- <div class=" choice choice-2 d-flex justify-content-around align-items-center mt-4"
- (click)="checkAnswer(question[count-1].incorrect_answers[0])"
- [ngClass]= "{'selected ' : selectedAnswer ===question[count-1].incorrect_answers[0]  }"
- >
-  <p>
-    {{question[count-1].incorrect_answers[0]}}
-  </p>
- </div>
-
- <!-- choix 3  -->
-
- <div class="choice choice-3 d-flex justify-content-around align-items-center mt-4"
- (click)="checkAnswer(question[count-1].incorrect_answers[1])"
- [ngClass]= "{'selected ' : selectedAnswer ===question[count-1].incorrect_answers[1]  }"
- >
-  <p>
-    {{question[count-1].incorrect_answers[1]}}
-
-  </p>
- </div>
-
- <!-- choix 4  -->
-
- <div class="choice choice-4 d-flex justify-content-around align-items-center mt-4 mb-5"
- (click)="checkAnswer(question[count-1].incorrect_answers[2])"
- [ngClass]= "{'selected ' : selectedAnswer ===question[count-1].incorrect_answers[2]  }"
- 
- >
-  <p>
-    {{question[count-1].incorrect_answers[2]}}
-
-  </p>
- </div>
  
 
 </section>
-<button (click)="nextQestion()"  [disabled]="choiseselected"  >Next</button>
+<button class="mt-5" (click)="nextQestion()"  [disabled]="choiseselected"  >Next</button>
 </section>
 
 
@@ -93,7 +64,7 @@
       <div class="dot"></div>
       <div class="dot"></div>
     </div>
-    <span routerLink="/">Play</span>
+    <span routerLink="/">Again</span>
   </a>
 </div>
 </section>
