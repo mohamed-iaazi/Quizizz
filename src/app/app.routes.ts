@@ -10,7 +10,7 @@ export const routes: Routes = [
     component : AccueilComponent 
  },
  {
-    path: 'Quiz',
+    path: 'Quiz/:category/:level',
     component : QuizComponent
  },
  

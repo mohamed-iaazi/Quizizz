@@ -1,59 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute ,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GetquestionService } from '../services/getquestion.service';
 
 @Component({
   selector: 'app-quiz',
-  imports: [],
   templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.css'
+  styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  category: string = '';
+  level: string = '';
+  userName: string = '';     // ✅ Declare at top level
+  question: any[] = [];      // ✅ Declare at top level
 
+  constructor(
+    private routerAtive: ActivatedRoute,
+    private router: Router,
+    private getQestionService: GetquestionService
+  ) {}
 
-  constructor (private routerAtive: ActivatedRoute , private router : Router) {
-
-
-   }
-  userName: string = "";
-  question : any[] =[];
   ngOnInit(): void {
+    this.category = this.routerAtive.snapshot.paramMap.get('category') + '';
+    this.level = this.routerAtive.snapshot.paramMap.get('level') + '';
 
-
-
-
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation && navigation.extras.state) {
-      console.log(navigation.extras.state);
+    const username = localStorage.getItem('userName');
+    if (username) {
+      this.userName = username || '';
+      this.GetquestionService();
     } else {
-      console.log('No navigation state available');
-    }
-      
- 
-   
-  if(localStorage.getItem('userName')) {
-      const username = localStorage.getItem('userName');
-      this.userName = username || ""; // Use an empty string if null
-
-      const arrayString = this.routerAtive.snapshot.paramMap.get('itemes'); // Get the route parameter
-      if (arrayString) {
-        this.question = JSON.parse(arrayString); // Convert the string back to an array
-      }
-      console.log(this.question); // Use the array
-
-     
-    }
-
-    else {
-
-      alert("Please enter your name first and select the Category ");
-
+      alert('Please enter your name first and select the Category ');
       this.router.navigate(['/']);
-
     }
-
-
   }
 
-  
-
+  GetquestionService() {
+    this.getQestionService.getQuestion(this.category, this.level).subscribe({
+      next: (data: any) => {
+        console.log('API data:', data);
+        this.question = data.results || [];
+      },
+      error: (err: any) => {
+        console.error('Failed to load questions:', err);
+      }
+    });
+  }
 }

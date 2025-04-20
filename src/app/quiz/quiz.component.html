@@ -1,7 +1,7 @@
 
 
 
-<section  style="width: 90%; height: 100vh; margin-left: 15px;">
+<section  style="width: 90%; height: 100vh">
   <div id="wrapper">
   
     <div class="loading-bar">
@@ -15,7 +15,7 @@
   
   <div class="item">
   <h1>
-    What is the most popular sport throughout the world?
+   {{question[0].question}}
   </h1>
  </div>
 <section class="answers">
@@ -24,7 +24,7 @@
 <!-- choix 1  -->
  <div class="choice-1 choice d-flex justify-content-around align-items-center mt-4">
   <p>
-    non
+    {{question[0].correct_answer}}
   </p>
   <input type="radio" name="choice" id="choice-1" value="1">
  </div>
@@ -32,7 +32,7 @@
  <!-- choix 2 -->
  <div class=" choice choice-2 d-flex justify-content-around align-items-center mt-4">
   <p>
-    non
+    {{question[0].incorrect_answers[0]}}
   </p>
   <input type="radio" name="choice" id="choice-1" value="1">
  </div>
@@ -41,7 +41,8 @@
 
  <div class="choice choice-3 d-flex justify-content-around align-items-center mt-4">
   <p>
-    non
+    {{question[0].incorrect_answers[1]}}
+
   </p>
   <input type="radio" name="choice" id="choice-1" value="1">
  </div>
@@ -50,7 +51,8 @@
 
  <div class="choice choice-4 d-flex justify-content-around align-items-center mt-4 mb-5">
   <p>
-    non
+    {{question[0].incorrect_answers[2]}}
+
   </p>
   <input type="radio" name="choice" id="choice-1" value="1">
  </div>
