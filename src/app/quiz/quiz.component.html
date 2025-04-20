@@ -5,11 +5,11 @@
   <div id="wrapper">
   
     <div class="loading-bar">
-      <div class="progress-bar"></div>
+      <div class="progress-bar" [style.width.%]="progress"></div>
     </div>
     <div class="status">
-      <div class="state">Question</div>
-      <div class="percentage">0%</div>
+      <div class="state">Question {{count}}</div>
+      <div class="percentage">{{progress}}%</div>
     </div>
   </div>
   
@@ -22,11 +22,10 @@
 
 
 <!-- choix 1  -->
- <div class="choice-1 choice d-flex justify-content-around align-items-center mt-4">
+ <div class=" choice  d-flex justify-content-around align-items-center mt-4" (click)="nextQestion()">
   <p>
     {{question[0].correct_answer}}
   </p>
-  <input type="radio" name="choice" id="choice-1" value="1">
  </div>
 
  <!-- choix 2 -->
@@ -34,7 +33,6 @@
   <p>
     {{question[0].incorrect_answers[0]}}
   </p>
-  <input type="radio" name="choice" id="choice-1" value="1">
  </div>
 
  <!-- choix 3  -->
@@ -44,7 +42,6 @@
     {{question[0].incorrect_answers[1]}}
 
   </p>
-  <input type="radio" name="choice" id="choice-1" value="1">
  </div>
 
  <!-- choix 4  -->
@@ -54,7 +51,6 @@
     {{question[0].incorrect_answers[2]}}
 
   </p>
-  <input type="radio" name="choice" id="choice-1" value="1">
  </div>
  
 

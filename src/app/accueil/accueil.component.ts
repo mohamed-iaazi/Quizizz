@@ -21,6 +21,7 @@ export class AccueilComponent implements OnInit {
 
   userName: string =localStorage.getItem('userName') || "";
   score: Number = Number(localStorage.getItem('score')) || 0;
+  ranking : Number = 0;
 
 
   router : Router;

@@ -10,8 +10,10 @@ import { GetquestionService } from '../services/getquestion.service';
 export class QuizComponent implements OnInit {
   category: string = '';
   level: string = '';
-  userName: string = '';     // ✅ Declare at top level
-  question: any[] = [];      // ✅ Declare at top level
+  userName: string = '';     
+  question: any[] = [];   
+  count: number = 1;
+  progress: number =0;
 
   constructor(
     private routerAtive: ActivatedRoute,
@@ -44,4 +46,35 @@ export class QuizComponent implements OnInit {
       }
     });
   }
+
+
+  nextQestion(){
+
+    if(this.count>=10){
+      this.updateprogress();
+
+    }
+
+    else {
+      this.count += 1;
+      console.log(this.count)
+     this.updateprogress();
+    }
+
+  }
+
+
+  updateprogress(){
+    if(this.progress>=100){
+
+      alert("you finish")
+    }
+    else{
+
+ this.progress += 10;
+    }
+  }
+
+
+  
 }
