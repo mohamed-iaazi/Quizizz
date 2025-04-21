@@ -1,59 +1,61 @@
-# Quizizz
+# 🧠 Dynamic Quiz App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
+🎯 **Projet personnel - Application de quiz interactive avec Angular**
 
-## Development server
+Bienvenue dans ce projet de quiz dynamique développé en Angular. L’objectif est de créer une application web moderne, responsive, et interactive, permettant aux utilisateurs de tester leurs connaissances grâce à des questions récupérées en temps réel depuis une API externe (Open Trivia DB).
 
-To start a local development server, run:
+---
+
+## 📚 Contexte du Projet
+
+Tu es un développeur **Freelancer** spécialisé dans les **applications web interactives**. Ce projet a été imaginé pour :
+
+- 🧪 Te permettre de maîtriser **les appels HTTP**
+- 🔄 Gérer efficacement **l’état de l’application avec RxJS**
+- 🧼 Appliquer **les bonnes pratiques** de développement frontend Angular
+- 🌐 Manipuler des **APIs externes** comme Open Trivia DB
+
+---
+
+## 🚀 Fonctionnalités (User Stories)
+
+✅ En tant qu'utilisateur, je peux :
+
+- 🏠 Accéder à une **page d’accueil** présentant les **catégories de quiz disponibles**
+- 🎯 Sélectionner une **catégorie**, un **niveau de difficulté**, puis **démarrer un quiz**
+- 📋 Répondre aux **questions une par une**, avec **validation instantanée**
+- 🧾 Voir mon **score final**, l'enregistrer avec mon **nom d’utilisateur** (dans le *local storage*)
+- 🔁 **Rejouer** un quiz terminé
+- 📈 Consulter l’**historique des scores** (depuis le *local storage*)
+
+
+
+---
+
+---
+
+## 🛠️ Technologies utilisées
+
+| Tech | Description |
+|------|-------------|
+| ![Angular](https://img.shields.io/badge/Angular-16+-DD0031?logo=angular&logoColor=white) | Framework principal |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-4.x-3178C6?logo=typescript&logoColor=white) | Langage |
+|  ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.x-7952B3?logo=bootstrap&logoColor=white) | Framework UI |
+| ![RxJS](https://img.shields.io/badge/RxJS-7.x-B7178C?logo=reactivex&logoColor=white) | Gestion d’état |
+| 🌐 [Open Trivia DB](https://opentdb.com/) | API pour générer les questions |
+
+---
+
+## 🔧 Lancer le Projet en Local
 
 ```bash
+# 1. Cloner le projet
+git clone https://github.commohamed-iaazi/Quizizz.git
+cd Quizizz
+
+# 2. Installer les dépendances
+npm install
+
+# 3. Lancer l’application
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
