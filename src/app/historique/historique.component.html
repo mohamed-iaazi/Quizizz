@@ -1,1 +1,29 @@
-<p>historique works!</p>
+<section class="historique">
+
+  <h3>Historique</h3>
+
+  @for (item of history; track $index) {
+
+
+
+<div class="score p-2 d-flex justify-content-around align-content-center d-block ms-auto me-auto">
+  <i class='bx bx-time bx-tada bx-flip-vertical' style='color:#009ad0' ></i>
+  <div >
+      <h6>Date</h6>
+      <h5>{{item.date}}</h5>
+  </div>
+
+ <div class="line"></div>
+  <img src="images/coin.png" alt="" srcset="">
+  <div>
+      <h6>Points</h6>
+      <h5>{{item.score}}</h5>
+  </div>
+
+ </div>
+
+ <div class="line-h"></div>
+
+}
+
+</section>

@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
 export class QuizComponent implements OnInit {
   category: string = '';
   level: string = '';
-  userName: string = '';     
-  question: any[] = [];   
+  userName: string = '';
+  question: any[] = [];
   count: number = 1;
   progress: number =0;
   selectedAnswer : string ="";
@@ -22,6 +22,8 @@ export class QuizComponent implements OnInit {
   score: number=0;
   totalScore : number = Number(localStorage.getItem("score"));
   shuffledAnswers: string[] = [];
+
+  historique: any[]= [];
 
 
   constructor(
@@ -105,15 +107,29 @@ export class QuizComponent implements OnInit {
 
     localStorage.setItem("score",(this.score+this.totalScore).toString());
     this.score=this.score;
-// 
+    const date = new Date().toISOString();
+    const dte = date.split("T")[0];
+
+    const list = { date: dte, score: this.score };
+
+    const saved = localStorage.getItem("historique");
+    const history = saved ? JSON.parse(saved) : [];
+
+    history.push(list);
+
+    localStorage.setItem("historique", JSON.stringify(history));
+
+    this.historique = history;
+
+//
 
   }
   shuffleAnswers(question: any) {
     const answers = [...question.incorrect_answers, question.correct_answer];
     this.shuffledAnswers = answers.sort(() => Math.random() - 0.5);
   }
-  
 
 
-  
+
+
 }

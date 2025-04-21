@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class HistoriqueComponent {
 
+
+ saved : any = localStorage.getItem("historique");
+ history : any = this.saved ? JSON.parse(this.saved) : [];
+
 }

@@ -1,0 +1,56 @@
+.historique{
+  margin-top: 50px;
+  width: 600px;
+}
+.score{
+  width: 327px;
+height: 70px;
+margin-top: 10px;
+/* UI Properties */
+background: #FFFFFF 0% 0% no-repeat padding-box;
+box-shadow: 4px 4px 12px #00000014;
+border-radius: 16px;
+opacity: 1;
+
+}
+.score i {
+  margin-top: 8px;
+  font-size: 30px;
+
+}
+
+.score img{
+  margin-top: 8px;
+  height: 32px;
+  width: 32px;
+
+}
+.score h6 {
+text-align: left;
+letter-spacing: 0px;
+color: #323232;
+opacity: 1;
+font-size: 12px;
+}
+.score h5 {
+  font-size: 18px;
+  color: #3EB8D4;
+}
+.line {
+  height: 50px;
+  width: 1px;
+  background-color: #F1F1F1;
+}
+.line-h{
+  margin-top: 30px;
+  height: 1px;
+  width: 100%;
+  background-color: #F1F1F1;
+  margin-bottom: 20px;
+
+}
+
+h3{
+  margin-left: 20px;
+  margin-top: 20px;
+}
