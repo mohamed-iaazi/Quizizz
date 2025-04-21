@@ -1,9 +1,9 @@
 
-<section  [hidden]="categorySelected" class="home p-2" style="width: 90%; height: 100vh; " > 
+<section  [hidden]="categorySelected" class="home p-2" style="width: 90%; height: 100vh; " >
     <div class="d-flex justify-content-between avatar  " style="height: fit-content;">
         <h3>
             Hi, {{userName}}
-            
+
         </h3>
         <img src="images/image.png" alt="" >
     </div>
@@ -13,8 +13,8 @@
     <div >
         <h6>Ranking</h6>
         <h5>{{ranking}}</h5>
-    </div>
- 
+    </div >
+
    <div class="line"></div>
     <img src="images/coin.png" alt="" srcset="">
     <div>
@@ -47,8 +47,8 @@
 <section  [hidden]="levelSelected" class="level p-2"  style=" height: fit-content; margin-top: 100px; ">
   <h1> Select Level</h1>
   <section class="answers">
-  
-  
+
+
   <!-- choix 1  -->
 
   @for ( item of Level ; track item.id){
@@ -58,9 +58,9 @@
     </p>
    </div>
   }
-  
+
   </section>
-  
+
   <button id="next-btn" class="d-block ms-auto me-auto mt-5" (click)="startQuiz()" [disabled]="inputSelected" >Next</button>
   </section>
 <!-- end select level  -->
@@ -78,16 +78,15 @@
     <section class="username">
 
       <span>Quizizz</span>
-    
-    
+
+
     <!-- username input   -->
-    
+
      <input [(ngModel)]="userName" id="username" type="text" name="username"  placeholder="Enter your name" class="d-block ms-auto me-auto mt-5 username-input">
 
      <button class="d-block ms-auto me-auto mt-5 play-btn"  (click)="saveUserName()" > save</button>
 
     </section>
-    
     </section>
-  
-  
+
+

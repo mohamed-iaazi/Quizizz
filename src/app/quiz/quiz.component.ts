@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { GetquestionService } from '../services/getquestion.service';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-quiz',
   imports : [CommonModule],
@@ -132,6 +133,6 @@ export class QuizComponent implements OnInit {
   }
 
 
-
+ 
 
 }

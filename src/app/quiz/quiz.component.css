@@ -10,6 +10,19 @@
   border-radius: 10px;
 }
 
+@media screen and (max-width: 1300px) {
+  .item{
+    width: 327px;
+    height: 100px !important;
+  }
+
+  h1 {
+
+  padding-top:10% !important;
+
+  }
+}
+
 @media screen and (min-width:800px) {
   #wrapper {
     margin-right: 300px;
@@ -67,7 +80,7 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 h1 {

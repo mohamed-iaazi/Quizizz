@@ -33,7 +33,7 @@ constructor(router : Router){
   ngOnInit(): void {
 
     if(localStorage.getItem("userName")){
-       
+
       this.userNameSelected=true;
       this.categorySelected=false;
 
@@ -41,8 +41,8 @@ constructor(router : Router){
 
 
   }
-  
-  
+
+
 
 
   Category = [
@@ -86,13 +86,13 @@ constructor(router : Router){
     {
       id: 1,
       name: 'easy',
-  
+
     },
 
     {
       id: 2,
       name: 'medium',
- 
+
     }
 
     ,
@@ -129,7 +129,7 @@ constructor(router : Router){
       element.classList.remove("selected");
 
 
-      
+
     });
 
 
