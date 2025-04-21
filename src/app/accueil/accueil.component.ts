@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GetquestionService } from '../services/getquestion.service';
-import { Route} from '@angular/router'; 
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -23,6 +21,7 @@ export class AccueilComponent implements OnInit {
 
   userName: string =localStorage.getItem('userName') || "";
   score: Number = Number(localStorage.getItem('score')) || 0;
+  ranking : Number = 0;
 
 
   router : Router;
@@ -92,7 +91,7 @@ constructor(router : Router){
 
     {
       id: 2,
-      name: 'meduim',
+      name: 'medium',
  
     }
 
@@ -142,7 +141,8 @@ constructor(router : Router){
   }
 
   startQuiz(){
-  this.router.navigate(["/Quiz"] , {state : {cat: this.selectedCategory , level : this.selectedlevel}} );
+    this.levelSelected=true;
+  this.router.navigate(["/Quiz",this.selectedCategory,""+this.selectedlevel] );
   }
 
   saveUserName(){

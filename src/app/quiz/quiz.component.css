@@ -1,11 +1,20 @@
+.app-bar {
+
+  padding: 20px;
+
+}
+
+
 #wrapper {
-  position: relative;
   width: 200px;
-  padding: 10px 10px 10px;
   border-radius: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+@media screen and (min-width:800px) {
+  #wrapper {
+    margin-right: 300px;
+  }
+  
 }
 
 .loading-bar {
@@ -18,7 +27,7 @@
 }
 
 .progress-bar {
-  width: 100px;
+  width: 0%;
   height: 100%;
   background: #fdca00;
   border-radius: 5px;
@@ -96,44 +105,17 @@ padding-top: 40px;
   margin: 0;
 }
 
-/* Hide radio but keep it accessible */
-.choice input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  margin: 0;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid #0ca8e6;
-  border-radius: 50%;
-  display: grid;
-  place-content: center;
-  cursor: pointer;
-}
 
-.choice input[type="radio"]::before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  background-color: #0ca8e6;
-}
-
-.choice input[type="radio"]:checked::before {
-  transform: scale(1);
-}
-
-/* Highlight selected choice container */
-.choice input[type="radio"]:checked + p {
-  color: #0ca8e6;
-}
-
-.choice:has(input[type="radio"]:checked) {
-  border-color: #0ca8e6;
-  background: #e0f7ff;
-}
+.selected{
+  box-shadow: 0 0 3px 1px #0ca8e643;
+  outline: #0ca8e6 solid 1px;
+  border: #0ca8e6 1px solid !important;
+  background-color: #0ca8e62a  !important;
+  font-weight: bolder;
+  p{
+    color: #0ca8e6 !important;
+  }
+ }
 
 
 .wrong{
@@ -145,9 +127,7 @@ padding-top: 40px;
     color: #ff0825;
   }
   
-  input[type="radio"] {
-    border: 2px solid #3EB8D4;
-  }
+ 
 }
 
 
@@ -160,9 +140,7 @@ padding-top: 40px;
     color: #2ed573;
   }
   
-  input[type="radio"] {
-    border: 2px solid #3EB8D4;
-  }
+
 }
 
 
@@ -184,4 +162,123 @@ input[type="radio"]::before {
 
 input[type="radio"]:checked::before {
   transform: scale(1);
+}button {
+  background-color: #2ed573;
+  border-radius: 5px;
+  border:  #2ed573 2px solid;
+  color: white;
+  padding: 8px 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+
+.choice:hover{
+  background-color: #2e79d52a;
+  color: #2e98d5;
+}
+
+button:hover{
+  background-color: #2ed574a1;
+}
+
+.score{
+  width: 316px;
+height: 209px;
+/* UI Properties */
+background: #DCF8FF 0% 0% no-repeat padding-box;
+box-shadow: 4px 4px 12px #00000014;
+opacity: 1;
+border-radius: 8px;
+
+}
+
+.result{
+margin-left: auto;
+margin-right: auto;
+margin-top: 15%;
+margin-bottom: 15%;
+width: fit-content;
+
+}
+
+.score img{
+  width: 80px;
+height: fit-content;
+/* UI Properties */
+opacity: 1;
+margin-left: auto;
+margin-right: auto;
+display: block;
+padding-top: 20px;
+}
+
+.score h1{
+  text-align: center;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+font-size: 15px;
+}
+
+
+.score h2{
+  text-align: center;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+font-size: 12px;
+}
+
+
+
+
+ /* go style */
+
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+
+
+.my-super-cool-btn{
+  position:relative;
+  text-decoration:none;
+  color:#0ca8e6;
+  letter-spacing:1px;
+  font-size:14px;
+  box-sizing:border-box;
+
+}
+.my-super-cool-btn span{
+  position:relative;
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100px;
+  height:100px;
+  margin-left: 35px;
+
+}
+.my-super-cool-btn span:before{
+  content:'';
+  width:100%;
+  height:100%;
+  display:block;
+  position:absolute;
+  border-radius:100%;
+  border:4px solid #0ca8e6;
+  box-sizing:border-box;
+  transition: all .85s cubic-bezier(0.25, 1, 0.33, 1);
+  box-shadow: 0 10px 55px rgba(0,0,0,0.14), 0 5px 25px rgba(0,0,0,0.14);
+}
+.my-super-cool-btn:hover span:before{
+  transform:scale(0.8);
+  box-shadow: 0 20px 55px rgba(0,0,0,0.14), 0 15px 35px rgba(0,0,0,0.14);
+}
+
+
+
+.wrapper{
+  margin-left: 80px;
+  margin-top: 20px;
 }

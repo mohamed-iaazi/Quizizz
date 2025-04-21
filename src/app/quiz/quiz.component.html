@@ -1,62 +1,69 @@
 
+<div class="app-bar d-flex justify-content-between avatar  " style="height: fit-content;">
+  <h3>
+      Hi, {{userName}}
+      
+  </h3>
 
-
-<section  style="width: 90%; height: 100vh; margin-left: 15px;">
-  <div id="wrapper">
+   <div id="wrapper">
   
     <div class="loading-bar">
-      <div class="progress-bar"></div>
+      <div class="progress-bar" [style.width.%]="progress"></div>
     </div>
     <div class="status">
-      <div class="state">Question</div>
-      <div class="percentage">0%</div>
+      <div class="state">Question {{count}}</div>
+      <div class="percentage">{{progress}}%</div>
     </div>
   </div>
+  <img src="images/image.png" alt="" >
+</div>
+
+<section  style="width: 90%; height: 100vh"    [hidden]="gemeOver">
+ 
   
   <div class="item">
   <h1>
-    What is the most popular sport throughout the world?
+   {{question[count-1].question}}
   </h1>
  </div>
 <section class="answers">
 
+<div 
+  class="choice  d-flex justify-content-around align-items-center mt-4"
+  *ngFor="let answer of shuffledAnswers"
+  (click)="checkAnswer(answer)"
+  [ngClass]="{'selected': selectedAnswer === answer}">
+  <p>{{ answer }}</p>
+</div>
 
-<!-- choix 1  -->
- <div class="choice-1 choice d-flex justify-content-around align-items-center mt-4">
-  <p>
-    non
-  </p>
-  <input type="radio" name="choice" id="choice-1" value="1">
- </div>
-
- <!-- choix 2 -->
- <div class=" choice choice-2 d-flex justify-content-around align-items-center mt-4">
-  <p>
-    non
-  </p>
-  <input type="radio" name="choice" id="choice-1" value="1">
- </div>
-
- <!-- choix 3  -->
-
- <div class="choice choice-3 d-flex justify-content-around align-items-center mt-4">
-  <p>
-    non
-  </p>
-  <input type="radio" name="choice" id="choice-1" value="1">
- </div>
-
- <!-- choix 4  -->
-
- <div class="choice choice-4 d-flex justify-content-around align-items-center mt-4 mb-5">
-  <p>
-    non
-  </p>
-  <input type="radio" name="choice" id="choice-1" value="1">
- </div>
  
 
 </section>
+<button class="mt-5" (click)="nextQestion()"  [disabled]="choiseselected"  >Next</button>
+</section>
 
 
+
+
+
+<section class="result">
+<div class="score" [hidden]="!gemeOver">
+  <img src="./images/winner.png" alt="">
+  <h1>{{userName}}</h1>
+  <h2 class="text-success">Your Score {{score}} points</h2>
+
+
+</div>
+
+<div class="wrapper" [hidden]="!gemeOver">
+  <a href="#" class="my-super-cool-btn">
+    <div class="dots-container">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <span routerLink="/">Again</span>
+  </a>
+</div>
 </section>
