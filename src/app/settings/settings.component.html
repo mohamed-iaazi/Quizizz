@@ -1,1 +1,18 @@
-<p>settings works!</p>
+<section class="row">
+
+<div class="col-sm-12 col-md-4 profile">
+  <div class="d-flex justify-content-between">
+    <h3 class="">Profile</h3>
+    <button><i class='bx bx-edit-alt bx-tada' ></i></button>
+  </div>
+<div class="ms-auto me-auto form">
+  <label class="d-block" for="">username</label>
+  <input class="d-block"  id="username" type="text" [(ngModel)]="username">
+
+  <button (click)="updateuserName()">Update</button>
+</div>
+
+
+</div>
+
+</section>

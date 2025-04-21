@@ -1,0 +1,71 @@
+.profile{
+
+  background-color: white;
+  box-shadow: 0 0 10px   rgb(214, 213, 213);
+  margin-top: 20px;
+  border-radius: 10px;
+  height: 60vh;
+  margin-left: 10px;
+}
+
+h3{
+  color: rgb(58, 57, 57);
+  margin-top: 10px;
+  margin-left: 10px;
+  display: inline-block;
+}
+button{
+  border: none;
+  border-radius: 100px;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  background:transparent;
+  box-shadow: 0 0 10px 1px rgb(243, 242, 242);
+  width: 80px;
+}
+i{
+  font-size: 23px;
+}
+
+button:hover{
+  i{
+    color: rgb(9, 129, 209);
+  }
+
+}
+
+label{
+  margin-left: 23px;
+  margin-top: 40px;
+  font-size: 13px;
+  font-weight: bolder;
+
+}
+
+input{
+  margin-left: 20px;
+  margin-top: 5px;
+  border:  2px solid #0572a5;
+  border-radius: 5px;
+  color: #0572a5;
+  padding: 10px 20px;
+  width: 200px;
+  outline: #0572a5 0px solid;
+  box-shadow: #0572a544 0 0 10px 0.1px;
+
+}
+
+.form{
+  width: fit-content;
+}
+
+.form button{
+  background: #0572a5;
+  color: aliceblue;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 180px;
+}
