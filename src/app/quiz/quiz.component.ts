@@ -97,6 +97,8 @@ export class QuizComponent implements OnInit {
 
       this.gemeOver=true;
       this.displaResult();
+      this.progress += 10;
+
     }
     else{
 

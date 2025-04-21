@@ -2,11 +2,11 @@
 <div class="app-bar d-flex justify-content-between avatar  " style="height: fit-content;">
   <h3>
       Hi, {{userName}}
-      
+
   </h3>
 
    <div id="wrapper">
-  
+
     <div class="loading-bar">
       <div class="progress-bar" [style.width.%]="progress"></div>
     </div>
@@ -18,9 +18,9 @@
   <img src="images/image.png" alt="" >
 </div>
 
-<section  style="width: 90%; height: 100vh"    [hidden]="gemeOver">
- 
-  
+<section  style="width: 84%; height: 100vh"    [hidden]="gemeOver">
+
+
   <div class="item">
   <h1>
    {{question[count-1].question}}
@@ -28,7 +28,7 @@
  </div>
 <section class="answers">
 
-<div 
+<div
   class="choice  d-flex justify-content-around align-items-center mt-4"
   *ngFor="let answer of shuffledAnswers"
   (click)="checkAnswer(answer)"
@@ -36,7 +36,7 @@
   <p>{{ answer }}</p>
 </div>
 
- 
+
 
 </section>
 <button class="mt-5" (click)="nextQestion()"  [disabled]="choiseselected"  >Next</button>

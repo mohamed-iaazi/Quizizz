@@ -1,4 +1,4 @@
-a{
+a {
   text-decoration: none;
   color: black;
 }
@@ -7,90 +7,118 @@ li {
   list-style: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 10px;
   width: 80px;
   height: 80px;
-background-color: transparent;
-margin-left: 20px;
-
+  background-color: transparent;
 }
 
 .menu {
   background-color: #3EB8D4;
-  left: 0px;
-width: 128px;
-height: fit-content;
-background: #3EB8D4 0% 0% no-repeat padding-box;
-border-radius: 0px 39px 39px 0px;
-opacity: 1;
-
-
-
+  width: 128px;
+  height: fit-content;
+  border-radius: 0px 39px 39px 0px;
 }
-a , i {
+
+a, i {
   display: block;
   margin-left: auto;
   margin-right: auto;
   font-size: medium;
 }
-nav{
+
+nav {
   min-height: 60vh;
 }
 
 ul {
   padding: 0;
   padding-top: 100px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-nav a ,nav  i {
+nav a, nav i {
   color: #FFFFFF;
 }
-.active{
-  width: 80px;
-height: 80px;
-background: #efeeee4b 0% 0% no-repeat padding-box;
-box-shadow: 9px 9px 16px #00000038;
-opacity: 1;
-border-radius: 100%;
-margin-left: 30px;
-a{
-  color: black;
-}
-i {
-  color: black;
-}
+
+.active {
+  background: #efeeee4b;
+  box-shadow: 9px 9px 16px #00000038;
+  border-radius: 100%;
 }
 
+.active a,
+.active i {
+  color: black;
+}
 
 nav li:hover {
-width: 80px;
-height: 80px;
-background: #efeeee4b 0% 0% no-repeat padding-box;
-box-shadow: 9px 9px 16px #00000038;
-opacity: 1;
-border-radius: 100%;
-margin-left: 30px;
-a{
-  color: black;
+  background: #efeeee4b;
+  box-shadow: 9px 9px 16px #00000038;
+  border-radius: 100%;
 }
-i {
+
+nav li:hover a,
+nav li:hover i {
   color: black;
 }
 
-}
-
-
-
-h2{
+h2 {
   padding-top: 32px;
   width: 101px;
   height: 34px;
   text-align: center;
-  font: normal normal bold 20px/24px Tahoma;
-  letter-spacing: 0px;
+  font: bold 20px Tahoma;
   color: #FFFFFF;
-  opacity: 1;
+}
+
+/* 🔽 Responsive Styling */
+@media screen and (max-width: 768px) {
+  .menu {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 0;
+    z-index: 1000;
   }
 
+  nav {
+    min-height: auto;
+  }
 
+  ul {
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 0;
+    width: auto;
+    height: auto;
+    flex: 1;
+  }
+
+  .active {
+    border-radius: 0;
+    box-shadow: none;
+    background: none;
+  }
+
+  h2 {
+    display: none;
+  }
+
+  nav li:hover {
+    box-shadow: none;
+    border-radius: 0%;
+    background: none !important;
+  }
+}
